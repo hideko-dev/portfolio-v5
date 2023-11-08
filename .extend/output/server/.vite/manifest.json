@@ -244,19 +244,6 @@
     "isEntry": true,
     "src": "src/pages/+page.svelte"
   },
-  "src/pages/about/+page.js": {
-    "file": "entries/pages/about/_page.js",
-    "isEntry": true,
-    "src": "src/pages/about/+page.js"
-  },
-  "src/pages/about/+page.svelte": {
-    "file": "entries/pages/about/_page.svelte.js",
-    "imports": [
-      "_ssr.js"
-    ],
-    "isEntry": true,
-    "src": "src/pages/about/+page.svelte"
-  },
   "src/pages/home/+page.css": {
     "file": "_app/immutable/assets/_page.fd26d093.css",
     "src": "src/pages/home/+page.css"

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, b as add_attribute, e as escape, d as each, v as validate_component } from "../../../chunks/ssr.js";
+import { c as create_ssr_component, d as add_attribute, e as escape, f as each, v as validate_component } from "../../../chunks/ssr.js";
 import { faReact, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 import { faEllipsis, faPersonHalfDress, faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 const texts_svelte_svelte_type_style_lang = "";
@@ -7,6 +7,9 @@ const css$3 = {
   map: null
 };
 const Texts = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  const prerender = true;
+  if ($$props.prerender === void 0 && $$bindings.prerender && prerender !== void 0)
+    $$bindings.prerender(prerender);
   $$result.css.add(css$3);
   return `<div class="texts svelte-i3zyel" data-svelte-h="svelte-1utrnip"><p class="sub svelte-i3zyel">DESIGNS AND DEVELOPMENTS</p> <p class="title svelte-i3zyel">I do most powerful<br>Modern and Instant<br>for Development</p> <p class="bio svelte-i3zyel">I do a variety of front-end, back-end, and software development. I can also communicate with various people.</p> </div>`;
 });

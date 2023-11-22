@@ -35,7 +35,7 @@
 <main>
     <div class="box" style={styles}/>
     {#each items as c, index}
-        <a href={c.link} class="item" style={`color: ${selected === index ? "white" : null}`}>{c.title}</a>
+        <a href={c.link} class="item" style={`color: ${selected === index ? "var(--subtle)" : null}`}>{c.title}</a>
     {/each}
 </main>
 
@@ -47,14 +47,14 @@
         padding-inline: 4px;
         padding-block: 4px;
         border-radius: 8px;
-        border: 1px solid rgb(42, 42, 42);
+        /*border: 1px solid rgb(33, 33, 33);*/
         font-family: 'Inter', sans-serif;
         position: relative;
         z-index: 1;
     }
     .box {
         position: absolute;
-        background: rgb(42, 42, 42);
+        background: var(--border);
         height: 1.5rem;
         border-radius: 5px;
         z-index: 2;
@@ -68,7 +68,7 @@
         font-size: 14px;
         z-index: 3;
         transition: all 0.3s;
-        color: #858585;
+        color: var(--text-thin);
         font-weight: 400;
         user-select: none;
     }

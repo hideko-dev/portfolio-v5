@@ -1,0 +1,53 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add microcms-js-sdk
+
+PATH: 
+  C:\Users\user\.jdks\azul-1.8.0_372\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Gradle\gradle-6.9.1\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git LFS;C:\Program Files\nodejs\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\.jdks\azul-1.8.0_372\bin;C:\Gradle\gradle-6.9.1\bin;C:\Users\user\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\user\AppData\Local\Programs\oh-my-posh\bin;C:\Users\user\.dotnet\tools;C:\Users\user\AppData\Roaming\npm;C:\Users\user\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\user\AppData\Local\Microsoft\WindowsApps;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'E:\Develops\sveltekit\portfolio-v5\node_modules\@esbuild\win32-x64\esbuild.exe'
+
+npm manifest: 
+  {
+  	"name": "app",
+  	"version": "0.0.1",
+  	"scripts": {
+  		"dev": "vite dev",
+  		"build": "vite build",
+  		"preview": "vite preview"
+  	},
+  	"devDependencies": {
+  		"@fontsource/fira-mono": "^4.5.10",
+  		"@neoconfetti/svelte": "^1.0.0",
+  		"@sveltejs/adapter-auto": "^2.0.0",
+  		"@sveltejs/kit": "^1.20.4",
+  		"svelte": "^4.0.5",
+  		"vite": "^4.4.2"
+  	},
+  	"type": "module",
+  	"dependencies": {
+  		"@fontsource-variable/roboto-mono": "^5.0.16",
+  		"@fontsource/inter": "^5.0.15",
+  		"@fontsource/poppins": "^5.0.8",
+  		"@fortawesome/free-brands-svg-icons": "^6.4.2",
+  		"@fortawesome/free-solid-svg-icons": "^6.4.2",
+  		"@sveltejs/adapter-static": "^2.0.3",
+  		"@sveltejs/adapter-vercel": "^3.0.3",
+  		"svelte-fa": "^3.0.4"
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

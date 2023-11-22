@@ -1,30 +1,86 @@
+<script>
+    import Navigator from "./navigator.svelte";
+    import logoImg from "$lib/assets/icon.svg";
+    import Eternals from "./eternals.svelte";
+    import Theme from "./theme.svelte";
+    import { theme } from "$lib/theme/theme.js";
+</script>
+
 <main>
-    <div class="icon">
-        <svg height="12" viewBox="0 0 291 69" fill="none"><path d="M0 36.53c.07 17.6 14.4 32.01 32.01 32.01a32.05 32.05 0 0032.01-32V32a13.2 13.2 0 0123.4-8.31h20.7A32.07 32.07 0 0077.2 0a32.05 32.05 0 00-32 32.01v4.52A13.2 13.2 0 0132 49.71a13.2 13.2 0 01-13.18-13.18 3.77 3.77 0 00-3.77-3.77H3.76A3.77 3.77 0 000 36.53zM122.49 68.54a32.14 32.14 0 01-30.89-23.7h20.67a13.16 13.16 0 0023.4-8.3V32A32.05 32.05 0 01167.68 0c17.43 0 31.64 14 32 31.33l.1 5.2a13.2 13.2 0 0023.4 8.31h20.7a32.07 32.07 0 01-30.91 23.7c-17.61 0-31.94-14.42-32.01-32l-.1-4.7v-.2a13.2 13.2 0 00-13.18-12.81 13.2 13.2 0 00-13.18 13.18v4.52a32.05 32.05 0 01-32.01 32.01zM247.94 23.7a13.16 13.16 0 0123.4 8.31 3.77 3.77 0 003.77 3.77h11.3a3.77 3.77 0 003.76-3.77A32.05 32.05 0 00258.16 0a32.07 32.07 0 00-30.92 23.7h20.7z" fill="currentColor"></path></svg>
-        <p>Hideko</p>
+    <div class="contents">
+        <a href="/" class="logo" style={`filter: invert(${$theme === "dark" ? 0 : 0.9})`}>
+            <img src={logoImg} alt="logo">
+        </a>
+        <div class="lefts">
+            <div class="line"/>
+            <div class="navigator"><Navigator/></div>
+            <div class="line"/>
+            <div class="eternal"><Eternals/></div>
+            <div class="line"/>
+            <div class="theme"><Theme/></div>
+        </div>
     </div>
 </main>
 
 <style>
-    .icon {
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
+    .line {
+        width: 1px;
+        height: 18px;
+        background: var(--thin);
+    }
+    .contents {
         display: flex;
-        font-size: 18px;
         align-items: center;
         justify-content: center;
-        user-select: none;
+        padding-inline: 4px;
+        padding-block: 2px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--translucent);
+        backdrop-filter: blur(30px);
     }
-    .icon p {
-        margin-left:6px;
+    .theme {
+        margin-inline: 0.2rem;
+    }
+    .eternal {
+        margin-inline: 0.3rem;
     }
     main {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 4rem;
+        margin-top: 1rem;
         width: 100%;
         position: fixed;
-        z-index: 100;
+        background: transparent;
+        font-family: 'Inter', sans-serif;
+    }
+    .logo {
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline: 1rem;
+        transition: all 0.3s;
+    }
+    .logo:hover {
+        opacity: 0.5;
+    }
+    .logo img {
+        width: 1.7rem;
+    }
+    .lefts {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media (max-width: 600px) {
+        .eternal {
+            display: none;
+        }
     }
 </style>

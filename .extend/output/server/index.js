@@ -392,7 +392,7 @@ function disable_hash(url) {
   Object.defineProperty(url, "hash", {
     get() {
       throw new Error(
-        "Cannot access event.url.hash. Consider using `$page.url.hash` inside a component instead"
+        "Cannot access event.url.hash. Consider using `$transition.url.hash` inside a component instead"
       );
     }
   });
@@ -434,7 +434,7 @@ function is_action_json_request(event) {
 async function handle_action_json_request(event, options2, server) {
   const actions = server?.actions;
   if (!actions) {
-    const no_actions_error = error(405, "POST method not allowed. No actions exist for this page");
+    const no_actions_error = error(405, "POST method not allowed. No actions exist for this transition");
     return action_json(
       {
         type: "error",
@@ -522,7 +522,7 @@ async function handle_action_request(event, server) {
     });
     return {
       type: "error",
-      error: error(405, "POST method not allowed. No actions exist for this page")
+      error: error(405, "POST method not allowed. No actions exist for this transition")
     };
   }
   check_named_default_separate(actions);
@@ -1337,7 +1337,7 @@ async function render_response({
       throw new Error('Cannot use prerendering if config.kit.csp.mode === "nonce"');
     }
     if (options2.app_template_contains_nonce) {
-      throw new Error("Cannot use prerendering if page template contains %sveltekit.nonce%");
+      throw new Error("Cannot use prerendering if transition template contains %sveltekit.nonce%");
     }
   }
   const { client } = manifest._;
@@ -2744,7 +2744,7 @@ async function respond(request, options2, manifest, state) {
       if (opts) {
         if ("ssr" in opts) {
           throw new Error(
-            "ssr has been removed, set it in the appropriate +layout.js instead. See the PR for more information: https://github.com/sveltejs/kit/pull/6197"
+            "ssr has been removed, set it in the appropriate ++layout.server.js instead. See the PR for more information: https://github.com/sveltejs/kit/pull/6197"
           );
         }
         resolve_opts = {

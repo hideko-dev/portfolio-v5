@@ -29,6 +29,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>Works - Hideko Portfolio</title>
+</svelte:head>
+
 <section>
     <div class="contents">
         <div class="titles">

@@ -3,6 +3,10 @@
     import Bio from "./_components/bio.svelte";
 </script>
 
+<svelte:head>
+    <title>Home - Hideko Portfolio</title>
+</svelte:head>
+
 <section>
     <div>
         <About/>

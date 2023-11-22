@@ -46,6 +46,10 @@
     })
 </script>
 
+<svelte:head>
+    <title>Works / {data.title} - Hideko Portfolio</title>
+</svelte:head>
+
 <section>
     {#if state === false}
     {:else if state === true}

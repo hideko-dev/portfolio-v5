@@ -1,6 +1,6 @@
 import { b as base, a as assets, r as reset, p as public_env, o as options, s as set_private_env, c as set_public_env, g as get_hooks } from "./chunks/internal.js";
 import * as devalue from "devalue";
-import { n as noop, s as safe_not_equal } from "./chunks/ssr.js";
+import { w as writable, r as readable } from "./chunks/index.js";
 import { parse, serialize } from "cookie";
 import * as set_cookie_parser from "set-cookie-parser";
 const DEV = false;
@@ -392,7 +392,7 @@ function disable_hash(url) {
   Object.defineProperty(url, "hash", {
     get() {
       throw new Error(
-        "Cannot access event.url.hash. Consider using `$transition.url.hash` inside a component instead"
+        "Cannot access event.url.hash. Consider using `$page.url.hash` inside a component instead"
       );
     }
   });
@@ -434,7 +434,7 @@ function is_action_json_request(event) {
 async function handle_action_json_request(event, options2, server) {
   const actions = server?.actions;
   if (!actions) {
-    const no_actions_error = error(405, "POST method not allowed. No actions exist for this transition");
+    const no_actions_error = error(405, "POST method not allowed. No actions exist for this page");
     return action_json(
       {
         type: "error",
@@ -522,7 +522,7 @@ async function handle_action_request(event, server) {
     });
     return {
       type: "error",
-      error: error(405, "POST method not allowed. No actions exist for this transition")
+      error: error(405, "POST method not allowed. No actions exist for this page")
     };
   }
   check_named_default_separate(actions);
@@ -842,53 +842,6 @@ async function stream_to_string(stream) {
     result += decoder.decode(value);
   }
   return result;
-}
-const subscriber_queue = [];
-function readable(value, start) {
-  return {
-    subscribe: writable(value, start).subscribe
-  };
-}
-function writable(value, start = noop) {
-  let stop;
-  const subscribers = /* @__PURE__ */ new Set();
-  function set(new_value) {
-    if (safe_not_equal(value, new_value)) {
-      value = new_value;
-      if (stop) {
-        const run_queue = !subscriber_queue.length;
-        for (const subscriber of subscribers) {
-          subscriber[1]();
-          subscriber_queue.push(subscriber, value);
-        }
-        if (run_queue) {
-          for (let i = 0; i < subscriber_queue.length; i += 2) {
-            subscriber_queue[i][0](subscriber_queue[i + 1]);
-          }
-          subscriber_queue.length = 0;
-        }
-      }
-    }
-  }
-  function update(fn) {
-    set(fn(value));
-  }
-  function subscribe(run, invalidate = noop) {
-    const subscriber = [run, invalidate];
-    subscribers.add(subscriber);
-    if (subscribers.size === 1) {
-      stop = start(set, update) || noop;
-    }
-    run(value);
-    return () => {
-      subscribers.delete(subscriber);
-      if (subscribers.size === 0 && stop) {
-        stop();
-        stop = null;
-      }
-    };
-  }
-  return { set, update, subscribe };
 }
 function hash(...values) {
   let hash2 = 5381;
@@ -1337,7 +1290,7 @@ async function render_response({
       throw new Error('Cannot use prerendering if config.kit.csp.mode === "nonce"');
     }
     if (options2.app_template_contains_nonce) {
-      throw new Error("Cannot use prerendering if transition template contains %sveltekit.nonce%");
+      throw new Error("Cannot use prerendering if page template contains %sveltekit.nonce%");
     }
   }
   const { client } = manifest._;
@@ -2585,7 +2538,7 @@ async function respond(request, options2, manifest, state) {
     fetch: null,
     getClientAddress: state.getClientAddress || (() => {
       throw new Error(
-        `${"@sveltejs/adapter-auto"} does not specify getClientAddress. Please raise an issue`
+        `${"@sveltejs/adapter-cloudflare"} does not specify getClientAddress. Please raise an issue`
       );
     }),
     locals: {},
@@ -2744,7 +2697,7 @@ async function respond(request, options2, manifest, state) {
       if (opts) {
         if ("ssr" in opts) {
           throw new Error(
-            "ssr has been removed, set it in the appropriate ++layout.server.js instead. See the PR for more information: https://github.com/sveltejs/kit/pull/6197"
+            "ssr has been removed, set it in the appropriate +layout.js instead. See the PR for more information: https://github.com/sveltejs/kit/pull/6197"
           );
         }
         resolve_opts = {

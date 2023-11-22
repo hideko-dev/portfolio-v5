@@ -1,6 +1,5 @@
 <script>
     import Navigator from "./navigator.svelte";
-    import logoImg from "$lib/assets/icon.svg";
     import Eternals from "./eternals.svelte";
     import Theme from "./theme.svelte";
     import { theme } from "$lib/theme/theme.js";
@@ -9,7 +8,7 @@
 <main>
     <div class="contents">
         <a href="/" class="logo" style={`filter: invert(${$theme === "dark" ? 0 : 0.9})`}>
-            <img src={logoImg} alt="logo">
+            <img src="icon.svg" alt="logo">
         </a>
         <div class="lefts">
             <div class="line"/>

@@ -2,6 +2,10 @@
     import Inputs from "./_components/inputs.svelte";
 </script>
 
+<svelte:head>
+    <title>Contact - Hideko Portfolio</title>
+</svelte:head>
+
 <section>
     <div>
         <p class="title">Contact</p>

@@ -1,250 +1,52 @@
-import { c as create_ssr_component, d as add_attribute, e as escape, f as each, v as validate_component } from "../../../chunks/ssr.js";
-import { faReact, faNodeJs } from "@fortawesome/free-brands-svg-icons";
-import { faEllipsis, faPersonHalfDress, faPaintRoller } from "@fortawesome/free-solid-svg-icons";
-const texts_svelte_svelte_type_style_lang = "";
-const css$3 = {
-  code: ".texts.svelte-i3zyel{width:30rem;font-family:'Poppins', sans-serif;margin-right:8em}.sub.svelte-i3zyel{color:#7d73d0;font-weight:600;font-family:'Inter', sans-serif}.title.svelte-i3zyel{margin-top:1rem;font-weight:500;font-size:45px;line-height:3.5rem}.bio.svelte-i3zyel{color:#676767;font-weight:500;width:80%;margin-top:1rem}",
-  map: null
-};
-const Texts = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const prerender = true;
-  if ($$props.prerender === void 0 && $$bindings.prerender && prerender !== void 0)
-    $$bindings.prerender(prerender);
-  $$result.css.add(css$3);
-  return `<div class="texts svelte-i3zyel" data-svelte-h="svelte-1utrnip"><p class="sub svelte-i3zyel">DESIGNS AND DEVELOPMENTS</p> <p class="title svelte-i3zyel">I do most powerful<br>Modern and Instant<br>for Development</p> <p class="bio svelte-i3zyel">I do a variety of front-end, back-end, and software development. I can also communicate with various people.</p> </div>`;
-});
-const parseNumber = parseFloat;
-function joinCss(obj, separator = ";") {
-  let texts;
-  if (Array.isArray(obj)) {
-    texts = obj.filter((text) => text);
-  } else {
-    texts = [];
-    for (const prop in obj) {
-      if (obj[prop]) {
-        texts.push(`${prop}:${obj[prop]}`);
-      }
-    }
-  }
-  return texts.join(separator);
-}
-function getStyles(style, size, pull, fw) {
-  let float;
-  let width;
-  const height = "1em";
-  let lineHeight;
-  let fontSize;
-  let textAlign;
-  let verticalAlign = "-.125em";
-  const overflow = "visible";
-  if (fw) {
-    textAlign = "center";
-    width = "1.25em";
-  }
-  if (pull) {
-    float = pull;
-  }
-  if (size) {
-    if (size == "lg") {
-      fontSize = "1.33333em";
-      lineHeight = ".75em";
-      verticalAlign = "-.225em";
-    } else if (size == "xs") {
-      fontSize = ".75em";
-    } else if (size == "sm") {
-      fontSize = ".875em";
-    } else {
-      fontSize = size.replace("x", "em");
-    }
-  }
-  return joinCss([
-    joinCss({
-      float,
-      width,
-      height,
-      "line-height": lineHeight,
-      "font-size": fontSize,
-      "text-align": textAlign,
-      "vertical-align": verticalAlign,
-      "transform-origin": "center",
-      overflow
-    }),
-    style
-  ]);
-}
-function getTransform(scale, translateX, translateY, rotate, flip, translateTimes = 1, translateUnit = "", rotateUnit = "") {
-  let flipX = 1;
-  let flipY = 1;
-  if (flip) {
-    if (flip == "horizontal") {
-      flipX = -1;
-    } else if (flip == "vertical") {
-      flipY = -1;
-    } else {
-      flipX = flipY = -1;
-    }
-  }
-  return joinCss(
-    [
-      `translate(${parseNumber(translateX) * translateTimes}${translateUnit},${parseNumber(translateY) * translateTimes}${translateUnit})`,
-      `scale(${flipX * parseNumber(scale)},${flipY * parseNumber(scale)})`,
-      rotate && `rotate(${rotate}${rotateUnit})`
-    ],
-    " "
-  );
-}
-const fa_svelte_svelte_type_style_lang = "";
+import { c as create_ssr_component, a as add_attribute, e as each, b as escape, v as validate_component } from "../../../chunks/ssr.js";
+const catIcon = "data:image/webp;base64,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";
+const about_svelte_svelte_type_style_lang = "";
 const css$2 = {
-  code: ".spin.svelte-1cj2gr0{animation:svelte-1cj2gr0-spin 2s 0s infinite linear}.pulse.svelte-1cj2gr0{animation:svelte-1cj2gr0-spin 1s infinite steps(8)}@keyframes svelte-1cj2gr0-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}",
+  code: 'section.svelte-zz6fvg{margin-top:7rem}.title.svelte-zz6fvg{font-weight:700;font-size:25px}.bios.svelte-zz6fvg{margin:0 auto;width:30rem}.bio.svelte-zz6fvg{margin-top:15px}img.svelte-zz6fvg{float:right;margin-left:1rem;margin-bottom:1rem;border-radius:100%;outline:1px solid var(--border);aspect-ratio:1 / 1;height:120px;width:120px;object-fit:cover}a.svelte-zz6fvg{text-decoration:none;color:var(--text);position:relative;z-index:2}a.svelte-zz6fvg:before{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--text-thin);z-index:1;transition:all 0.2s}a.svelte-zz6fvg:hover::before{background:var(--text)\r\n    }@media(max-width: 600px){.bios.svelte-zz6fvg{width:20rem}}',
   map: null
 };
-const Fa = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: clazz = "" } = $$props;
-  let { id = "" } = $$props;
-  let { style = "" } = $$props;
-  let { icon } = $$props;
-  let { size = "" } = $$props;
-  let { color = "" } = $$props;
-  let { fw = false } = $$props;
-  let { pull = "" } = $$props;
-  let { scale = 1 } = $$props;
-  let { translateX = 0 } = $$props;
-  let { translateY = 0 } = $$props;
-  let { rotate = "" } = $$props;
-  let { flip = false } = $$props;
-  let { spin = false } = $$props;
-  let { pulse = false } = $$props;
-  let { primaryColor = "" } = $$props;
-  let { secondaryColor = "" } = $$props;
-  let { primaryOpacity = 1 } = $$props;
-  let { secondaryOpacity = 0.4 } = $$props;
-  let { swapOpacity = false } = $$props;
-  let i;
-  let s;
-  let transform;
-  if ($$props.class === void 0 && $$bindings.class && clazz !== void 0)
-    $$bindings.class(clazz);
-  if ($$props.id === void 0 && $$bindings.id && id !== void 0)
-    $$bindings.id(id);
-  if ($$props.style === void 0 && $$bindings.style && style !== void 0)
-    $$bindings.style(style);
-  if ($$props.icon === void 0 && $$bindings.icon && icon !== void 0)
-    $$bindings.icon(icon);
-  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
-    $$bindings.size(size);
-  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
-    $$bindings.color(color);
-  if ($$props.fw === void 0 && $$bindings.fw && fw !== void 0)
-    $$bindings.fw(fw);
-  if ($$props.pull === void 0 && $$bindings.pull && pull !== void 0)
-    $$bindings.pull(pull);
-  if ($$props.scale === void 0 && $$bindings.scale && scale !== void 0)
-    $$bindings.scale(scale);
-  if ($$props.translateX === void 0 && $$bindings.translateX && translateX !== void 0)
-    $$bindings.translateX(translateX);
-  if ($$props.translateY === void 0 && $$bindings.translateY && translateY !== void 0)
-    $$bindings.translateY(translateY);
-  if ($$props.rotate === void 0 && $$bindings.rotate && rotate !== void 0)
-    $$bindings.rotate(rotate);
-  if ($$props.flip === void 0 && $$bindings.flip && flip !== void 0)
-    $$bindings.flip(flip);
-  if ($$props.spin === void 0 && $$bindings.spin && spin !== void 0)
-    $$bindings.spin(spin);
-  if ($$props.pulse === void 0 && $$bindings.pulse && pulse !== void 0)
-    $$bindings.pulse(pulse);
-  if ($$props.primaryColor === void 0 && $$bindings.primaryColor && primaryColor !== void 0)
-    $$bindings.primaryColor(primaryColor);
-  if ($$props.secondaryColor === void 0 && $$bindings.secondaryColor && secondaryColor !== void 0)
-    $$bindings.secondaryColor(secondaryColor);
-  if ($$props.primaryOpacity === void 0 && $$bindings.primaryOpacity && primaryOpacity !== void 0)
-    $$bindings.primaryOpacity(primaryOpacity);
-  if ($$props.secondaryOpacity === void 0 && $$bindings.secondaryOpacity && secondaryOpacity !== void 0)
-    $$bindings.secondaryOpacity(secondaryOpacity);
-  if ($$props.swapOpacity === void 0 && $$bindings.swapOpacity && swapOpacity !== void 0)
-    $$bindings.swapOpacity(swapOpacity);
+const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$2);
-  i = icon && icon.icon || [0, 0, "", [], ""];
-  s = getStyles(style, size, pull, fw);
-  transform = getTransform(scale, translateX, translateY, rotate, flip, 512);
-  return `${i[4] ? `<svg${add_attribute("id", id || void 0, 0)} class="${[
-    "svelte-fa " + escape(clazz, true) + " svelte-1cj2gr0",
-    (pulse ? "pulse" : "") + " " + (spin ? "spin" : "")
-  ].join(" ").trim()}"${add_attribute("style", s, 0)} viewBox="${"0 0 " + escape(i[0], true) + " " + escape(i[1], true)}" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg"><g transform="${"translate(" + escape(i[0] / 2, true) + " " + escape(i[1] / 2, true) + ")"}" transform-origin="${escape(i[0] / 4, true) + " 0"}"><g${add_attribute("transform", transform, 0)}>${typeof i[4] == "string" ? `<path${add_attribute("d", i[4], 0)}${add_attribute("fill", color || primaryColor || "currentColor", 0)} transform="${"translate(" + escape(i[0] / -2, true) + " " + escape(i[1] / -2, true) + ")"}"></path>` : ` <path${add_attribute("d", i[4][0], 0)}${add_attribute("fill", secondaryColor || color || "currentColor", 0)}${add_attribute("fill-opacity", swapOpacity != false ? primaryOpacity : secondaryOpacity, 0)} transform="${"translate(" + escape(i[0] / -2, true) + " " + escape(i[1] / -2, true) + ")"}"></path> <path${add_attribute("d", i[4][1], 0)}${add_attribute("fill", primaryColor || color || "currentColor", 0)}${add_attribute("fill-opacity", swapOpacity != false ? secondaryOpacity : primaryOpacity, 0)} transform="${"translate(" + escape(i[0] / -2, true) + " " + escape(i[1] / -2, true) + ")"}"></path>`}</g></g></svg>` : ``}`;
+  return `<section class="svelte-zz6fvg" data-svelte-h="svelte-dsr1vx"><p class="title svelte-zz6fvg">About</p> <div class="bios svelte-zz6fvg"><img${add_attribute("src", catIcon, 0)} alt="icon" class="svelte-zz6fvg"> <div class="bio svelte-zz6fvg">I’m a software engineer and CEO of Vercel. I’m originally from Lanús, Buenos Aires, Argentina. I owe much of my career to the Web and Open Source.
+            <br><br>
+            I spent my early teens advocating for and teaching people how to use Linux and later developed a passion for JavaScript and Web development.
+            <br><br>
+            After joining the <a href="https://mootools.io" class="svelte-zz6fvg">MooTools</a> core team, I got my first full-time job as a frontend engineer at 18 years old and relocated to San Francisco, CA.
+            <br><br>
+            I started my first company Cloudup in SF which was later acquired by Automattic, the company behind WordPress, to power their editing and site building technology.
+            <br><br>
+            After being involved in creating numerous influential open source projects like Socket.IO and Mongoose, I saw the opportunity in creating tooling and cloud infrastructure to make the Web faster, with a focus on developer experience (DX).
+            <br><br>
+            Next.js and Vercel were born. Our platform now helps power the online presence of companies like Washington Post, Porsche, Under Armour and Nintendo.</div></div> </section>`;
 });
-const features_svelte_svelte_type_style_lang = "";
+const bio_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: `.selector.svelte-1l2rsz3.svelte-1l2rsz3{background:rgba(17, 10, 56, 0.8);border-radius:7px;padding:3px;display:flex;align-items:center;margin-top:1rem;position:relative;transition:left 0.2s ease;box-shadow:0 0 25px 0 rgba(0, 0, 0, 0.35)}.select_box.svelte-1l2rsz3.svelte-1l2rsz3{position:absolute;top:3px;width:5rem;height:4.5rem;border-radius:5px;border:1px solid #1f2248;background:linear-gradient(to bottom, transparent, rgba(110, 60, 239, 0.1));transition:all 0.2s ease}.source.svelte-1l2rsz3.svelte-1l2rsz3{margin-top:1rem;background:rgba(17, 10, 56, 0.8);border-radius:7px;height:13rem;position:relative;box-shadow:0 0 25px 0 rgba(0, 0, 0, 0.35)}.source.svelte-1l2rsz3 .content.svelte-1l2rsz3{position:absolute;top:2.8rem;left:1rem;color:#c7c7c7;font-family:'Inter', sans-serif}.text.svelte-1l2rsz3.svelte-1l2rsz3{font-weight:500;padding-inline:15px;padding-block:7px;border-radius:100px;font-family:'Inter', sans-serif;font-size:13px;color:#B3A6EA;background:rgba(17, 10, 56, 0.8);display:flex;align-items:center;justify-content:center;position:relative;transition:left 0.2s ease;box-shadow:0 0 25px 0 rgba(0, 0, 0, 0.35);text-align:center}.box.svelte-1l2rsz3.svelte-1l2rsz3{font-family:'Inter', sans-serif;border:1px solid transparent;width:5rem;height:4.5rem;font-size:12px;border-radius:5px;text-align:center;position:relative;color:#a2a2a2;transition:all 0.2s ease}.box.svelte-1l2rsz3.svelte-1l2rsz3::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(to bottom, transparent, rgba(110, 60, 239, 0.1));transition:all 0.2s ease;border-radius:5px;opacity:0}.border.svelte-1l2rsz3.svelte-1l2rsz3{position:absolute;left:50%;transform:translateX(-50%);top:30px;width:95%;height:1px;background:rgba(179, 166, 234, 0.8)}.titlebar.svelte-1l2rsz3.svelte-1l2rsz3{font-family:'Inter', sans-serif;position:absolute;left:10px;top:1px;font-size:15px;color:rgba(255, 255, 255, 0.4);display:flex;align-items:center;width:95%}`,
+  code: "section.svelte-gcbuns{margin-top:3rem;margin-bottom:4rem}.title.svelte-gcbuns{font-weight:700;font-size:25px}.years.svelte-gcbuns{margin-top:15px}.year.svelte-gcbuns{display:flex;align-items:center;margin-block:5px}.main.svelte-gcbuns{font-weight:600;width:40px}.line.svelte-gcbuns{height:10px;width:2px;background:var(--text-thin);margin-inline:6px}",
   map: null
 };
-const Features = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const ssr = true;
-  let boxes = [
+const Bio = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  const years = [
     {
-      title: "Frontend",
-      icon: faReact,
-      description: "Hello This is fronhat"
+      year: "2010",
+      content: "Born in Miyazaki (宮崎), Japan"
     },
-    {
-      title: "Backend",
-      icon: faNodeJs,
-      description: "Hello This is froagagnt"
-    },
-    {
-      title: "Genderless",
-      icon: faPersonHalfDress,
-      description: "Hello This is fragfont"
-    },
-    {
-      title: "Designable",
-      icon: faPaintRoller,
-      description: "Hello This is fronte"
-    }
+    { year: "2018", content: "Hello to world" },
+    { year: "2023", content: "Hello to world" },
+    { year: "2023", content: "Hello to world" }
   ];
-  let select_box_left = 3;
-  let currentIndex = 0;
-  if ($$props.ssr === void 0 && $$bindings.ssr && ssr !== void 0)
-    $$bindings.ssr(ssr);
   $$result.css.add(css$1);
-  {
-    {
-      console.log("aa");
-      {
-        select_box_left = 3;
-      }
-    }
-  }
-  return `<div class="features"><p class="text svelte-1l2rsz3" data-svelte-h="svelte-18wmkmb">ALSO WORKS WITH 25+ MORE LIBRARIES</p> <div class="selector svelte-1l2rsz3"><div class="select_box svelte-1l2rsz3" style="${"left: " + escape(select_box_left, true) + "px"}"></div> ${each(boxes, (b, index) => {
-    return `<div class="box svelte-1l2rsz3"${add_attribute("style", `color: ${index === currentIndex ? "#B3A6EA" : "#a2a2a2"}`, 0)}><div class="box-content">${validate_component(Fa, "Fa").$$render(
-      $$result,
-      {
-        fw: true,
-        icon: b.icon,
-        size: "28",
-        style: "margin-top: 13px; margin-bottom: 4px"
-      },
-      {},
-      {}
-    )} <p>${escape(b.title)}</p></div> </div>`;
-  })}</div> <div class="source svelte-1l2rsz3"><div class="titlebar svelte-1l2rsz3"><p data-svelte-h="svelte-2ewyg8">note</p> ${validate_component(Fa, "Fa").$$render(
-    $$result,
-    {
-      fw: true,
-      icon: faEllipsis,
-      size: "28",
-      style: "margin: 0 0 0 auto"
-    },
-    {},
-    {}
-  )}</div> <div class="border svelte-1l2rsz3"></div> <div class="content svelte-1l2rsz3"><p>${escape(boxes[currentIndex].description)}</p></div></div> </div>`;
+  return `<section class="svelte-gcbuns"><p class="title svelte-gcbuns" data-svelte-h="svelte-9j7g05">Bio</p> <div class="years svelte-gcbuns">${each(years, (c) => {
+    return `<div class="year svelte-gcbuns"><p class="main svelte-gcbuns">${escape(c.year)}</p> <div class="line svelte-gcbuns"></div> <p class="content">${escape(c.content)}</p> </div>`;
+  })}</div> </section>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: 'main.svelte-1xmg676{background-image:linear-gradient(0deg, transparent 54px, #1A2355 55px), linear-gradient(90deg,  transparent 54px, #1A2355 55px);background-size:55px 55px;position:relative;height:100vh}.content.svelte-1xmg676{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(at right bottom, transparent, rgb(15, 11, 49) 60%)}.content.svelte-1xmg676::after{content:"";position:absolute;left:0;top:0;width:25rem;height:25rem;background:#000dff;filter:blur(280px)}.content.svelte-1xmg676::before{content:"";position:absolute;left:70%;top:0;width:25rem;height:25rem;background:#000dff;filter:blur(280px)}@media(max-width: 600px){.content.svelte-1xmg676::after{width:15rem;height:15rem;filter:blur(150px)}}',
+  code: "section.svelte-1d13hta{display:flex;justify-content:center;height:max-content;font-family:'Inter', sans-serif}",
   map: null
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<main class="svelte-1xmg676"><div class="content svelte-1xmg676">${validate_component(Texts, "Texts").$$render($$result, {}, {}, {})} ${validate_component(Features, "Features").$$render($$result, {}, {}, {})}</div> </main>`;
+  return `<section class="svelte-1d13hta"><div>${validate_component(About, "About").$$render($$result, {}, {}, {})} ${validate_component(Bio, "Bio").$$render($$result, {}, {}, {})}</div> </section>`;
 });
 export {
   Page as default

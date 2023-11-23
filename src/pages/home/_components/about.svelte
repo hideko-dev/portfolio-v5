@@ -7,17 +7,22 @@
     <div class="bios">
         <img src={catIcon} alt="icon">
         <div class="bio">
-            I’m a software engineer and CEO of Vercel. I’m originally from Lanús, Buenos Aires, Argentina. I owe much of my career to the Web and Open Source.
+            I am a front end developer. I can do backend and software as well as frontend. Not only that, I release various projects as open source.
             <br><br>
-            I spent my early teens advocating for and teaching people how to use Linux and later developed a passion for JavaScript and Web development.
+            When I was very young, I fell in love with Minecraft and wanted to create plug-ins and mods from it. From there I worked hard to buy a computer and suddenly started learning Java.
             <br><br>
-            After joining the <a href="https://mootools.io">MooTools</a> core team, I got my first full-time job as a frontend engineer at 18 years old and relocated to San Francisco, CA.
+            I said I was learning Java out of the blue, and I didn't do any research to make sure I was doing it right.
             <br><br>
-            I started my first company Cloudup in SF which was later acquired by Automattic, the company behind WordPress, to power their editing and site building technology.
+            After that I stopped programming for about two years, and after that I suddenly wanted to do front-end development.
             <br><br>
-            After being involved in creating numerous influential open source projects like Socket.IO and Mongoose, I saw the opportunity in creating tooling and cloud infrastructure to make the Web faster, with a focus on developer experience (DX).
+            In the beginning, we created a simple static site with only HTML, CSS, and JavaScript. From there, I became interested in React and learned about it, and then Next.js.
             <br><br>
-            Next.js and Vercel were born. Our platform now helps power the online presence of companies like Washington Post, Porsche, Under Armour and Nintendo.
+            From there, I fell in love with JavaScript and started back-end development with Nodejs, and have done many other things. At first I created a portfolio with React, but I failed many times.
+            <br><br>
+            That's when I came across Svelte, which I felt was the framework that best suited me, and from there I created
+            <a href="https://v1.hideko.cf">Portfolio v1</a>. This was also a failure, but from there I went through a lot of trial and error and eventually created <a href="https://hideko.cf">Portfolio v5</a>.
+            <br><br>
+            We developed not only the front end but also the back end, including Thundis, discord-cdn-deliver, ModUs and Meteor using Electron. From there, I worked on the front-end development of yukieiji's ExtremeRoles to learn a great deal about Git, including Branches, Issues, Pull Requests, and Git Command. Docs, etc. I was involved in the development of ExtremeRoles.
         </div>
     </div>
 </section>
@@ -52,9 +57,8 @@
         text-decoration: none;
         color: var(--text);
         position: relative;
-        z-index: 2;
     }
-    a:before {
+    a:after {
         content: "";
         position: absolute;
         left: 0;
@@ -62,7 +66,6 @@
         width: 100%;
         height: 1px;
         background:var(--text-thin);
-        z-index: 1;
         transition: all 0.2s;
     }
     a:hover::before {

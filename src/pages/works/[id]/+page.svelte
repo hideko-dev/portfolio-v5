@@ -19,9 +19,9 @@
         md = data.body;
         state = true
 
-        let createdAt = new Date(data.createdAt);
+        let publishedAt = new Date(data.publishedAt);
         let currentDate = new Date();
-        let timeDifference = currentDate - createdAt;
+        let timeDifference = currentDate - publishedAt;
         let daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
         let yearsDifference = Math.floor(daysDifference / 365)
         if (yearsDifference < 1) {
@@ -33,9 +33,9 @@
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
-        const month = months[createdAt.getMonth()];
-        const day = createdAt.getDate();
-        const year = createdAt.getFullYear();
+        const month = months[publishedAt.getMonth()];
+        const day = publishedAt.getDate();
+        const year = publishedAt.getFullYear();
         date = month + " " + day + ", " + year;
 
 

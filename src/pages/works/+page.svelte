@@ -42,9 +42,9 @@
         </div>
         {#each data as c}
             <a class="content" href="works/{c.id}">
-                <p class="y">{getYear(c.createdAt)}</p>
+                <p class="y">{getYear(c.publishedAt)}</p>
                 <p class="t">{c.title}</p>
-                <p class="a">{getYearDifference(new Date(), c.createdAt)}</p>
+                <p class="a">{getYearDifference(new Date(), c.publishedAt)}</p>
             </a>
         {/each}
     </div>

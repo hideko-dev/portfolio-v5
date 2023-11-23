@@ -51,6 +51,7 @@ declare module '$env/static/private' {
 	export const HOMEPATH: string;
 	export const IDEA_INITIAL_DIRECTORY: string;
 	export const INIT_CWD: string;
+	export const intellij_args: string;
 	export const JAVA_HOME: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
@@ -172,6 +173,7 @@ declare module '$env/dynamic/private' {
 		HOMEPATH: string;
 		IDEA_INITIAL_DIRECTORY: string;
 		INIT_CWD: string;
+		intellij_args: string;
 		JAVA_HOME: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
